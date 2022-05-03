@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    max-width: 1144px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.flex { display: flex; }
+.flex-between { justify-content: space-between; }
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
