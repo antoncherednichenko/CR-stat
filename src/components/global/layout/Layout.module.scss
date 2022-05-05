@@ -1,0 +1,19 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.layout {
+    width: 100%;
+    gap: 15px;
+    @include flex-between;
+}
+.content {
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-top: 50px;
+    backdrop-filter: blur(30px);
+    border-radius: 15px;
+    background: $primary-perple;
+    
+    @include container;
+}

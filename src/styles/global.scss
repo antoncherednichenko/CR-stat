@@ -1,12 +1,24 @@
-.container {
+
+@mixin container {
     width: 100%;
     max-width: 1144px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-.flex { display: flex; }
-.flex-between { justify-content: space-between; }
-.flex-center {
-    justify-content: center;
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+@mixin column($gap) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap;
+}
+
+@mixin shadow {
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 25%);
 }

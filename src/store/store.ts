@@ -1,8 +1,7 @@
 import { combineReducers ,configureStore } from "@reduxjs/toolkit"
-import apiSlice from "./sllices/apiSlice"
 
 const rootReducer = combineReducers({
-    api: apiSlice
+    
 })
 
 const store = configureStore({
