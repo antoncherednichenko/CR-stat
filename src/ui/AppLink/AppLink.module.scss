@@ -1,0 +1,13 @@
+@import '../../styles/vars.scss';
+
+.app_link {
+    font-size: 20px;
+    color: $primary-black;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.active {
+    color: $primary-blue;
+    text-decoration: underline;
+}
