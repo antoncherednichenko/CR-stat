@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { getId } from "../../helpers"
 import { NavLinkType } from "../../types/types"
 
 interface NavInitState {
@@ -8,34 +9,40 @@ interface NavInitState {
 const initialState: NavInitState = {
     links: [
         {
+            title: 'Home',
+            isActive: false,
+            path: '/',
+            id: getId()
+        },
+        {
           title: 'Player',
           isActive: false,
           path: '/player',
-          id: Date.now() * Math.random()  
+          id: getId() 
         },
         {
             title: 'Clans',
             isActive: false,
             path: '/clans',
-            id: Date.now() * Math.random()  
+            id: getId() 
         },
         {
             title: 'Tourmenets',
             isActive: false,
             path: '/tourmenets',
-            id: Date.now() * Math.random()  
+            id: getId()  
         },
         {
             title: 'Chalenges',
             isActive: false,
             path: '/chalenges',
-            id: Date.now() * Math.random()  
+            id: getId() 
         },
         {
             title: 'Create deck',
             isActive: false,
             path: '/create-deck',
-            id: Date.now() * Math.random()  
+            id: getId() 
         },
     ]
 }

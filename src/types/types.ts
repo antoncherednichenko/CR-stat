@@ -4,3 +4,7 @@ export interface NavLinkType {
     title: string,
     id: number
 }
+
+export interface PlayerType {
+    
+}

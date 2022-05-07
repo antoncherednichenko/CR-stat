@@ -6,7 +6,6 @@ const Home: FC = () => {
         <>
             <Layout>
                 <div>
-                    Hello
                 </div>
             </Layout>
         </>

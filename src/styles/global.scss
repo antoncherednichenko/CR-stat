@@ -12,6 +12,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @mixin column($gap) {
     display: flex;
     flex-direction: column;

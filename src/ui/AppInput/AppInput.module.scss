@@ -1,0 +1,24 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.input_container {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid $primary-black;
+    padding: 10px 15px;
+    border-radius: 4px;
+    @include flex-between;
+    .input {
+        border: none;
+        width: 90%;
+        height: 100%;
+        background: none;
+        font-size: 24px;
+        outline: none;
+    }
+    button {
+        &:hover {
+            color: $primary-blue;
+        }
+    }
+}

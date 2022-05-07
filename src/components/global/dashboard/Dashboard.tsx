@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+import { FC, useEffect } from "react";
+import { checkPath } from "../../../helpers";
 import { useTypedDispatch, useTypedSelector } from "../../../hooks/hooks";
 import { toggleLink } from "../../../store/sllices/navSlice";
 import AppLink from "../../../ui/AppLink/AppLink";
@@ -10,12 +11,20 @@ const Dashboard: FC = () => {
     const dispatch = useTypedDispatch()
     const changeLink = (id: number) => { dispatch(toggleLink(id)) }
 
+    useEffect(() => {
+        links.forEach(l => {
+            if(!l.isActive && checkPath(l.path)) {
+                dispatch(toggleLink(l.id))
+            }
+        })
+    }, [])
+
     return (
         <>
             <nav className={style.dashboard}>
                 {links.map(l => (
                     <AppLink 
-                        clickHadler={() => { changeLink(l.id) }} 
+                        clickHadler={() => changeLink(l.id)} 
                         path={l.path}
                         isActive={l.isActive}
                         key={l.id}
