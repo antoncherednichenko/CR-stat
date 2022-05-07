@@ -1,23 +1,29 @@
 import { FC, useState } from "react";
+import { useTypedDispatch, useTypedSelector } from "../../../hooks/hooks";
+import { toggleLink } from "../../../store/sllices/navSlice";
 import AppLink from "../../../ui/AppLink/AppLink";
 import style from './Dashboard.module.scss'
 
 
 const Dashboard: FC = () => {
-    const [isActive, setIsActive] = useState(false)
-    const changeLink = () => {
-        setIsActive(true)
-    }
+    const { links } = useTypedSelector(state => state.nav)
+    const dispatch = useTypedDispatch()
+    const changeLink = (id: number) => { dispatch(toggleLink(id)) }
 
     return (
         <>
-            <div className={style.dashboard}>
-                <AppLink clickHadler={changeLink} isActive={isActive} path="/">Player</AppLink>
-                <AppLink clickHadler={changeLink} isActive={isActive} path="/">Clans</AppLink>
-                <AppLink clickHadler={changeLink} isActive={isActive} path="/">Tourmenets</AppLink>
-                <AppLink clickHadler={changeLink} isActive={isActive} path="/">Chalenges</AppLink>
-                <AppLink clickHadler={changeLink} isActive={isActive} path="/">Create deck</AppLink>
-            </div>
+            <nav className={style.dashboard}>
+                {links.map(l => (
+                    <AppLink 
+                        clickHadler={() => { changeLink(l.id) }} 
+                        path={l.path}
+                        isActive={l.isActive}
+                        key={l.id}
+                    >
+                        {l.title}
+                    </AppLink>
+                ))}
+            </nav>
         </>
     )
 }

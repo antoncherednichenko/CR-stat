@@ -1,7 +1,8 @@
 import { combineReducers ,configureStore } from "@reduxjs/toolkit"
+import navSlice from "./sllices/navSlice"
 
 const rootReducer = combineReducers({
-    
+    nav: navSlice
 })
 
 const store = configureStore({
