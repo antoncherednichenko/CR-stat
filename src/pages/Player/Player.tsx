@@ -1,14 +1,17 @@
 import { FC, useState } from "react";
 import Layout from "../../components/global/layout/Layout";
+import { useTypedDispatch } from "../../hooks/hooks";
+import { fetchPlayerInfo } from "../../store/actions/playerActions";
 import AppInput from "../../ui/AppInput/AppInput";
 import PageHeader from "../../ui/PageHeader/PageHeader";
 import style from './Player.module.scss'
 
 const Players: FC = () => {
+    const dispatch = useTypedDispatch()
     const [tag, setTag] = useState('')
     const tagChanger = (value: string) => { setTag(value) }
-    const searchHandler = () => {
-        console.log('search')
+    const searchHandler = () => {   
+        dispatch(fetchPlayerInfo())
     }
     const clearHandler = () => { setTag('') }
 

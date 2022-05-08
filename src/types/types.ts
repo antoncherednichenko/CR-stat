@@ -6,5 +6,5 @@ export interface NavLinkType {
 }
 
 export interface PlayerType {
-    
+    player: object
 }

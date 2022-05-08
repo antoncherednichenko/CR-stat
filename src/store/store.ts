@@ -1,10 +1,11 @@
 import { combineReducers ,configureStore } from "@reduxjs/toolkit"
 import navSlice from "./sllices/navSlice"
-// import playerSlice from "./sllices/playerSlice"
+import playerSlice from "./sllices/playerSlice"
 
 const rootReducer = combineReducers({
     nav: navSlice,
-    // player: playerSlice
+    //@ts-ignore
+    player: playerSlice
 })
 
 const store = configureStore({
