@@ -1,13 +1,15 @@
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import crAPI from "../../api/api";
-import { AxiosResponse } from "axios";
 
-//@ts-ignore
-export const fetchPlayerInfo:  AsyncThunk<AxiosResponse<any, any>, void, {}> = createAsyncThunk(
+export const fetchPlayerInfo = createAsyncThunk(
     'player/fetchPlayerInfo',
-    async function() {
-        crAPI.get('').then(result => {
-            console.log(result)
-        })
+    async (tag: string) => {
+        const result = await crAPI.get(`/players?tag=${tag}`)
+            .then(result => {
+                return JSON.parse(result.data)
+            }).catch(err => {
+                console.error(err.message)
+            })
+        return result
     }
 )

@@ -1,0 +1,16 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.card {
+    display: inline-block;
+    background: #fff;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 15px;
+    @include card-shadow;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        @include shadow;
+    }
+}

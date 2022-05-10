@@ -1,24 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { PlayerType } from "../../types/types"
+import { PlayerType } from "../../types/playerTypes"
 import { fetchPlayerInfo } from "../actions/playerActions"
 
 const initialState: PlayerType = {
-    player: {}
+    playerInfo: null,
+    isPlayerLoading: false
 }
 
 const playerSlice = createSlice({
     name: 'player',
     initialState,
     reducers: {},
-    extraReducers: {
-        //@ts-ignore
-        [fetchPlayerInfo.pending]: (state) => { console.log(state) },
-        //@ts-ignore
-        [fetchPlayerInfo.fulfilled]: (state, action) => { console.log(action.payload, state) },
-        //@ts-ignore
-        [fetchPlayerInfo.rejected]: (state) => { console.log(state) } 
+    extraReducers: builder => {
+        builder.addCase(fetchPlayerInfo.pending, state => {
+            state.isPlayerLoading = true
+        })
+        builder.addCase(fetchPlayerInfo.fulfilled, (state, action) => {
+            state.playerInfo = action.payload
+            state.isPlayerLoading = false
+        })
+        builder.addCase(fetchPlayerInfo.rejected, state => {
+            state.isPlayerLoading = false
+        })
     }
 })
 
 
-export default playerSlice
+export default playerSlice.reducer

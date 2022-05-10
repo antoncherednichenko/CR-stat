@@ -4,7 +4,6 @@ import playerSlice from "./sllices/playerSlice"
 
 const rootReducer = combineReducers({
     nav: navSlice,
-    //@ts-ignore
     player: playerSlice
 })
 
