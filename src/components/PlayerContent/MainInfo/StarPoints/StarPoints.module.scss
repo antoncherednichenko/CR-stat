@@ -1,0 +1,14 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+.points {
+    @include flex-between;
+    width: 30%;
+    &_star {
+        @include star($star-yellow)
+    }
+    &_value {
+        font-weight: 500;
+        font-size: 18px;
+    }
+}

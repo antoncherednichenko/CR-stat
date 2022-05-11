@@ -1,0 +1,11 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+.trophie {
+    width: 85px;
+    @include flex-between;
+    &_amount {
+        font-size: 22px;
+        font-weight: 500;
+    }
+}

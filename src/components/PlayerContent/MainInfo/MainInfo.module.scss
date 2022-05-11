@@ -2,23 +2,13 @@
 @import '../../../styles/vars.scss';
 
 .info {
-    width: 750px;
+    width: 100%;
+    max-width: 500px;
     @include flex-between;
     align-items: flex-start;
     &_player {
         @include column(5px);
-    }
-}
-.tag {
-    font-weight: 500;
-    opacity: 0.5;
-}
-.trophie {
-    max-width: 85px;
-    width: 100%;
-    @include flex-between;
-    &_amount {
-        font-size: 22px;
-        font-weight: 500;
+        align-items: baseline;
+        width: 315px;
     }
 }

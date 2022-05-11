@@ -2,7 +2,10 @@ import { FC, memo } from 'react'
 import AppCard from '../../../ui/AppCard/AppCard'
 import style from './MainInfo.module.scss'
 import { MainInfoProps } from '../../../types/types'
-import AppTooltip from '../../../ui/AppTooltip/AppTooltip'
+import PlayerName from './PlayerName/PlayerName'
+import Trophies from './Trophies/Trophies'
+import StarPoints from './StarPoints/StarPoints'
+import CurrentFavotiteCard from './CurrentFavoriteCard/CurrentFavoriteCard'
 
 
 const MainInfo: FC<MainInfoProps> = ({
@@ -18,34 +21,24 @@ const MainInfo: FC<MainInfoProps> = ({
     wins,
     threeCrownWins
 }) => {
-    const tooltipContent = {
-        losses,
-        wins,
-        'Three-crown-wins': threeCrownWins,
-        total: wins + losses
-
-    }
 
     return (
         <>
             <AppCard>
                 <div className={style.info}>
                     <div className={style.info_player}>
-                        <h2>{name}</h2>
-                        <span className={style.tag}>{tag}</span>
-                        <div className={style.trophie}>
-                           <span>
-                               Current trophies: <span className={style.trophie_amount}>{trophies}</span>
-                            </span>
-                            <AppTooltip 
-                                img='https://cdn.royaleapi.com/static/img/ui/trophy.png?t=6f676365c'
-                                content={tooltipContent}
-                            />
-                        </div>
+                        <PlayerName level={expLevel} name={name} tag={tag} />
+                        <Trophies
+                            battleCount={battleCount}
+                            bestTrophies={bestTrophies}
+                            losses={losses}
+                            threeCrownWins={threeCrownWins}
+                            trophies={trophies}
+                            wins={wins} 
+                        />
+                        <StarPoints>{starPoints}</StarPoints>
                     </div>
-                    <div>
-                        <img src={currentFavouriteCard.iconUrls.medium} alt="current favorite card icon" />
-                    </div>
+                    <CurrentFavotiteCard cardUrl={currentFavouriteCard.iconUrls.medium} />
                 </div>
             </AppCard>
         </>
