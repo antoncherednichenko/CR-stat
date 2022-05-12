@@ -7,14 +7,16 @@
 
 .name {
     width: 100%;
-    max-width: 190px;
+    max-width: 25%;
     .nick {
         width: 100%;
-        @include flex-between;
+        display: flex;
         align-items: center;
+        .wrapper {
+            margin-left: 15px;
+        }
         h3 {
             font-size: 30px;
-            max-width: 150px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;

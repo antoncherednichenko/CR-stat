@@ -1,5 +1,6 @@
 import { FC, memo, useEffect } from 'react'
 import { PlayerInfoI } from '../../../types/playerTypes'
+import CurrentDeck from '../CurrentDeck/CurrentDeck'
 import MainInfo from '../MainInfo/MainInfo'
 import style from  './CombainPlayer.module.scss'
 
@@ -29,6 +30,7 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                     wins={playerInfo.wins} 
                     threeCrownWins={playerInfo.threeCrownWins}
                 />
+                <CurrentDeck deck={playerInfo.currentDeck} />
             </div>
         </>
     )

@@ -2,12 +2,14 @@
 @import '../../../../styles/vars.scss';
 
 .trophie {
-    width: 85px;
+    width: 100%;
+    max-width: 25%;
     @include flex-between;
     
     &_amount {
         font-size: 25px;
         font-weight: 500;
+        margin-left: 15px;
     }
 }
 .amount_title {

@@ -1,0 +1,14 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.card {
+    width: 250px;
+    padding: 10px;
+    @include column(5px);
+    &_img { width: 100%; }
+    &_title {
+        width: 100%;
+        text-align: center;
+        font-size: 25px;
+    }
+}

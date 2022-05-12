@@ -2,14 +2,16 @@
 @import '../../../../styles/vars.scss';
 
 .points {
-    max-width: 145px;
+    max-width: 25%;
     width: 100%;
-    @include flex-between;
+    display: flex;
+    align-items: center;
     &_star {
         @include star($star-yellow)
     }
     &_value {
         font-weight: 500;
         font-size: 25px;
+        margin-left: 15px;
     }
 }

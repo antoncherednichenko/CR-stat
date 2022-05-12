@@ -18,7 +18,7 @@ const PlayerName: FC<PlayerNameProps> = ({ name, tag, level }) => {
                         <div className={style.level_star}></div>
                         <span className={style.level_amount}>{level}</span>
                     </div>
-                    <div>
+                    <div className={style.wrapper}>
                         <h3 title={name}>{name}</h3>
                         <a 
                             href={`https://link.clashroyale.com/ru?playerInfo?id=${tag}`} 

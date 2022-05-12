@@ -17,7 +17,7 @@ interface TabsType {
 const Players: FC = () => {
     const dispatch = useTypedDispatch()
 
-    const [tag, setTag] = useState('')
+    const [tag, setTag] = useState('#QG82PLG88')
     const initialTabs: TabsType = {
         player: { title: 'Player', isActive: true, id: getId() },
         upcomingChests: { title: 'Upcoming chests', isActive: false, id: getId() },

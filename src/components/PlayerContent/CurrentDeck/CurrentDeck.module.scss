@@ -1,0 +1,12 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.deck {
+    width: 100%;
+    .container { @include container; }
+    &_holder {
+        width: 100%;
+        @include flex-between;
+        flex-wrap: wrap;
+    }
+}
