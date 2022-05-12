@@ -30,7 +30,7 @@ const AppTooltip: FC<AppTooltipProps> = ({ img, content }) => {
                     <ul className={style.tooltip_content}>
                         {keys.map(k => (
                             <li key={k}>
-                                <span>{kebabToString(capitalizeFirst(k))}</span>: <span>{content[k]}</span>
+                                <span className={style.key}>{kebabToString(capitalizeFirst(k))}</span>: <span>{content[k]}</span>
                             </li>
                         ))}
                     </ul> 

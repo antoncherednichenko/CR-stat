@@ -18,15 +18,18 @@ const PlayerName: FC<PlayerNameProps> = ({ name, tag, level }) => {
                         <div className={style.level_star}></div>
                         <span className={style.level_amount}>{level}</span>
                     </div>
-                    <h3>{name}</h3>
+                    <div>
+                        <h3 title={name}>{name}</h3>
+                        <a 
+                            href={`https://link.clashroyale.com/ru?playerInfo?id=${tag}`} 
+                            className={style.tag}
+                            target='_blank'
+                        >
+                            {tag}
+                        </a>
+                    </div>
                 </div>
-                <a 
-                    href={`https://link.clashroyale.com/ru?playerInfo?id=${tag}`} 
-                    className={style.tag}
-                    target='_blank'
-                >
-                    {tag}
-                </a>
+                
             </div>
         </>
     )

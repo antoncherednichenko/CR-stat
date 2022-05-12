@@ -26,7 +26,6 @@ const MainInfo: FC<MainInfoProps> = ({
         <>
             <AppCard>
                 <div className={style.info}>
-                    <div className={style.info_player}>
                         <PlayerName level={expLevel} name={name} tag={tag} />
                         <Trophies
                             battleCount={battleCount}
@@ -37,7 +36,6 @@ const MainInfo: FC<MainInfoProps> = ({
                             wins={wins} 
                         />
                         <StarPoints>{starPoints}</StarPoints>
-                    </div>
                     <CurrentFavotiteCard cardUrl={currentFavouriteCard.iconUrls.medium} />
                 </div>
             </AppCard>

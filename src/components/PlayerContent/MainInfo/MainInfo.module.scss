@@ -2,13 +2,6 @@
 @import '../../../styles/vars.scss';
 
 .info {
-    width: 100%;
-    max-width: 500px;
+    @include container;
     @include flex-between;
-    align-items: flex-start;
-    &_player {
-        @include column(5px);
-        align-items: baseline;
-        width: 315px;
-    }
 }

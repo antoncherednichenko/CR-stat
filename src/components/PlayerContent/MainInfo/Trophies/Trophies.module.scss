@@ -4,8 +4,12 @@
 .trophie {
     width: 85px;
     @include flex-between;
+    
     &_amount {
-        font-size: 22px;
+        font-size: 25px;
         font-weight: 500;
     }
+}
+.amount_title {
+    font-size: 18px;
 }

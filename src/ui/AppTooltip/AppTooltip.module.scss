@@ -9,25 +9,17 @@
     }
     &_content {
         display: inline-block;
-        width: 200px;
+        width: 250px;
         position: absolute;
-        top: -100px;
+        top: -120px;
         left: 0;
         background: #fff;
         padding: 10px;
         border-radius: 4px;
-        // &:before {
-        //     content: '';
-        //     position: absolute;
-        //     bottom: -15px;
-        //     left: 10px;
-        //     width: 0; 
-        //     height: 0; 
-        //     border-left: 15px solid transparent;
-        //     border-right: 15px solid transparent;
-            
-        //     border-top: 15px solid #fff
-        // }
         @include shadow;
+    }
+    .key {
+        font-size: 18px;
+        font-weight: 500;
     }
 }

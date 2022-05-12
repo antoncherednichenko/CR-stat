@@ -7,9 +7,18 @@
 
 .name {
     width: 100%;
+    max-width: 190px;
     .nick {
-        width: 35%;
+        width: 100%;
         @include flex-between;
+        align-items: center;
+        h3 {
+            font-size: 30px;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
         .level {
             position: relative;
             &_amount {
@@ -24,7 +33,6 @@
         }
     }
     .tag {
-        margin-top: 10px;
         display: block;
         font-weight: 600;
         opacity: 0.5;

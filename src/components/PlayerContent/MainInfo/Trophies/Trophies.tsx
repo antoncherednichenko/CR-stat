@@ -32,13 +32,13 @@ const Trophies: FC<TrophiesProps> = ({
         <>
             <div>
                 <div className={style.trophie}>
-                    <span className={style.trophie_amount}>{trophies}</span>
                     <AppTooltip 
                         img='https://cdn.royaleapi.com/static/img/ui/trophy.png?t=6f676365c'
                         content={tooltipContent}
                     />
+                    <span className={style.trophie_amount}>{trophies}</span>
                 </div>
-                <div>Best season: <span className={style.trophie_amount}>{bestTrophies}</span></div>
+                <div><span className={style.amount_title}>Best season:</span> <span className={style.trophie_amount}>{bestTrophies}</span></div>
             </div>
         </>
     )

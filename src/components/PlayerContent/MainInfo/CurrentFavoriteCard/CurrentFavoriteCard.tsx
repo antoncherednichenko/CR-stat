@@ -10,8 +10,7 @@ const CurrentFavotiteCard: FC<CurrentFavoriteCardProps> = ({ cardUrl }) => {
     return (
         <>
             <div className={style.card}>
-                <h3 className={style.card_title}>Current favorite card</h3>
-                <img className={style.card_img} src={cardUrl} alt="current favorite card icon" />
+                <img title='Current favorite card' className={style.card_img} src={cardUrl} alt="current favorite card icon" />
             </div>
         </>
     )

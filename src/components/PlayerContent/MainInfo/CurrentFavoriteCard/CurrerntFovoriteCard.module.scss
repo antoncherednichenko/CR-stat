@@ -2,13 +2,7 @@
 @import '../../../../styles/vars.scss';
 
 .card {
-    @include column(5px);
-    &_title {
-        color: $primary-black;
-        font-size: 18px;
-        font-weight: 600;
-    }
     &_img {
-        width: 140px;
+        width: 100px;
     }
 }
