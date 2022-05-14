@@ -1,9 +1,9 @@
-import { createContext, FC, useState } from "react";
+import { createContext, FC, useEffect, useState } from "react";
 import Layout from "../../components/global/layout/Layout";
 import PlayerContent from "../../components/PlayerContent/PlayerContent";
 import { useTypedDispatch } from "../../hooks/hooks";
 import { getId, removeSymbol } from "../../helpers";
-import { fetchPlayerInfo } from "../../store/actions/playerActions";
+import { fetchAllCards, fetchPlayerInfo } from "../../store/actions/playerActions";
 import AppInput from "../../ui/AppInput/AppInput";
 import PageHeader from "../../ui/PageHeader/PageHeader";
 import Tabs from "../../ui/Tabs/Tabs";
@@ -46,6 +46,8 @@ const Players: FC = () => {
             ))
         })
     }
+
+    useEffect(() => { dispatch(fetchAllCards()) }, [])
 
     return (
         <>

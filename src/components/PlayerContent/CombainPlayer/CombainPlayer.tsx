@@ -2,6 +2,8 @@ import { FC, memo, useEffect } from 'react'
 import { PlayerInfoI } from '../../../types/playerTypes'
 import CurrentDeck from '../CurrentDeck/CurrentDeck'
 import MainInfo from '../MainInfo/MainInfo'
+import OpenCards from '../OpenCards/OpenCards'
+import UpcomingChests from '../UpcomingChests/UpcomingChests'
 import style from  './CombainPlayer.module.scss'
 
 interface CombainePlayerProps {
@@ -35,6 +37,8 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                     deck={playerInfo.currentDeck} 
                     favoriteCard={playerInfo.currentFavouriteCard} 
                 />
+                <UpcomingChests />
+                <OpenCards playerCards={playerInfo.cards} />
             </div>
         </>
     )

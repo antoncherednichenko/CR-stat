@@ -1,4 +1,4 @@
-import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import crAPI from "../../api/api";
 
 export const fetchPlayerInfo = createAsyncThunk(
@@ -18,6 +18,19 @@ export const fetchUpcomingChests = createAsyncThunk(
     'player/fetchUpcomingChests',
     async (tag: string) => {
         const result = await crAPI.get(`/players/upcomingchests?tag=${tag}`)
+            .then(result => {
+                return JSON.parse(result.data)
+            }).catch(err => {
+                console.error(err.message)
+            })
+        return result.items
+    }
+)
+
+export const fetchAllCards = createAsyncThunk(
+    'player/fetchAllCards',
+    async () => {
+        const result = await crAPI.get('/cards')
             .then(result => {
                 return JSON.parse(result.data)
             }).catch(err => {

@@ -1,0 +1,28 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.cards {
+    @include container;
+    padding-top: 50px;
+    &_title { @include section-title; }
+    &_opened {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        img {
+            width: 75px;
+        }
+    }
+    &_closed {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        img {
+            width: 75px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    }
+}

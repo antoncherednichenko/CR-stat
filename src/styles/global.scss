@@ -71,3 +71,15 @@
         opacity: 0.8;
     }
 }
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin section-title {
+    color: #6058E9;
+    width: 100%;
+    text-align: center;
+    font-size: 55px;
+}

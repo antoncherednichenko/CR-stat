@@ -1,0 +1,31 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.chests {
+    @include container;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+    &_title { @include section-title; }
+    &_icon {
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        width: 125px;
+        height: 125px;
+        background-position: center;
+        position: relative;
+    }
+    &_index {
+        border-radius: 50%;
+        background: $primary-blue;
+        color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include square(50px);
+        @include flex-center;
+    }
+    &_name { text-align: center; }
+}

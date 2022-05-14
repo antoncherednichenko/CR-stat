@@ -86,6 +86,7 @@ export interface PlayerType {
     playerInfo: PlayerInfoI | null,
     isPlayerLoading: boolean,
     upcomingChests: ChestI[],
-    isChestLoading: boolean
+    isChestsLoading: boolean,
+    allCards: CardI[]
     
 }
