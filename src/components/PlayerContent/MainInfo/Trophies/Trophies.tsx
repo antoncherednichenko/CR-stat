@@ -30,7 +30,7 @@ const Trophies: FC<TrophiesProps> = ({
 
     return (
         <>
-            <div>
+            <div className={style.trophie_container}>
                 <div className={style.trophie}>
                     <AppTooltip 
                         img='https://cdn.royaleapi.com/static/img/ui/trophy.png?t=6f676365c'

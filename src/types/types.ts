@@ -1,4 +1,4 @@
-import { CardI } from "./playerTypes"
+import { CardI, ClanI } from "./playerTypes"
 
 export interface NavLinkType {
     isActive: boolean,
@@ -19,10 +19,11 @@ export interface MainInfoProps {
     trophies: number,
     battleCount: number,
     bestTrophies: number,
-    currentFavouriteCard: CardI,
     expLevel: number,
     losses: number,
     wins: number,
     starPoints: number,
-    threeCrownWins: number
+    threeCrownWins: number,
+    clan: ClanI,
+    role: string
 }

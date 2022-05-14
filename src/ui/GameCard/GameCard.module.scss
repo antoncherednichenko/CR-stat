@@ -12,3 +12,15 @@
         font-size: 25px;
     }
 }
+.favorite {
+    animation: favorite-anim 1s ease-in 0s infinite normal forwards;
+}
+
+@keyframes favorite-anim {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}

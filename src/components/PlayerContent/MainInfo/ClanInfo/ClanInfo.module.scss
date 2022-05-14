@@ -1,0 +1,14 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+.clan_holder { display: inline-block; }
+.clan {
+    width: 100%;
+    @include column(5px);
+    align-items: flex-start;
+    &_name {
+        font-size: 25px;
+        font-weight: 500;
+    }
+    &_tag { @include pseudo-link; }
+}

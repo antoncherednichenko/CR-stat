@@ -6,8 +6,7 @@
 
 
 .name {
-    width: 100%;
-    max-width: 25%;
+    display: inline-block;
     .nick {
         width: 100%;
         display: flex;
@@ -20,6 +19,7 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
+            .symbol { color: $primary-blue; }
         }
         .level {
             position: relative;

@@ -38,12 +38,6 @@ const initialState: NavInitState = {
             path: '/chalenges',
             id: getId() 
         },
-        {
-            title: 'Create deck',
-            isActive: false,
-            path: '/create-deck',
-            id: getId() 
-        },
     ]
 }
 

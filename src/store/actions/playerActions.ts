@@ -13,3 +13,16 @@ export const fetchPlayerInfo = createAsyncThunk(
         return result
     }
 )
+
+export const fetchUpcomingChests = createAsyncThunk(
+    'player/fetchUpcomingChests',
+    async (tag: string) => {
+        const result = await crAPI.get(`/players/upcomingchests?tag=${tag}`)
+            .then(result => {
+                return JSON.parse(result.data)
+            }).catch(err => {
+                console.error(err.message)
+            })
+        return result.items
+    }
+)

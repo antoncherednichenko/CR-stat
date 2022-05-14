@@ -1,6 +1,9 @@
 @import '../../../../styles/global.scss';
 @import '../../../../styles/vars.scss';
 
+.trophie_container {
+    display: inline-block;
+}
 .trophie {
     width: 100%;
     max-width: 25%;

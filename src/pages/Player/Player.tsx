@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { createContext, FC, useState } from "react";
 import Layout from "../../components/global/layout/Layout";
 import PlayerContent from "../../components/PlayerContent/PlayerContent";
 import { useTypedDispatch } from "../../hooks/hooks";
@@ -14,14 +14,16 @@ interface TabsType {
     [key: string]: TabType
 }
 
+export const tagContext = createContext('')
+
 const Players: FC = () => {
     const dispatch = useTypedDispatch()
 
     const [tag, setTag] = useState('#QG82PLG88')
     const initialTabs: TabsType = {
         player: { title: 'Player', isActive: true, id: getId() },
-        upcomingChests: { title: 'Upcoming chests', isActive: false, id: getId() },
-        battleLog: { title: 'Battle log', isActive: false, id: getId() }
+        battleLog: { title: 'Battle log', isActive: false, id: getId() },
+        createDeck: { title: 'Create deck', isActive: false, id: getId() }
     }
     const [tabs, setTabs] = useState(initialTabs)
     const tabsKeys = Object.keys(tabs)
@@ -62,9 +64,11 @@ const Players: FC = () => {
                     </div>
                 </div>
                 <div className={style.content}>
-                    { tabs.player.isActive && <PlayerContent /> }
-                    { tabs.upcomingChests.isActive && <h1>upcomingChests</h1> }
-                    { tabs.battleLog.isActive && <h1>battleLog</h1> }
+                    <tagContext.Provider value={tag}>
+                        { tabs.player.isActive && <PlayerContent /> }
+                        { tabs.battleLog.isActive && <h1>upcomingChests</h1> }
+                        { tabs.createDeck.isActive && <h1>battleLog</h1> }
+                    </tagContext.Provider>
                 </div>
             </Layout>
         </>

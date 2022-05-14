@@ -77,8 +77,15 @@ export interface PlayerInfoI {
     wins: number
 }
 
+export interface ChestI {
+    index: number,
+    name: string
+}
+
 export interface PlayerType {
     playerInfo: PlayerInfoI | null,
-    isPlayerLoading: boolean
+    isPlayerLoading: boolean,
+    upcomingChests: ChestI[],
+    isChestLoading: boolean
     
 }

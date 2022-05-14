@@ -59,3 +59,15 @@
         transform: rotate(60deg);
     }
 }
+
+@mixin pseudo-link {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.5;
+    color: $primary-blue;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}

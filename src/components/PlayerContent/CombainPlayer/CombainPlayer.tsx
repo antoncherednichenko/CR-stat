@@ -20,7 +20,6 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                 <MainInfo
                     battleCount={playerInfo.battleCount}
                     bestTrophies={playerInfo.bestTrophies}
-                    currentFavouriteCard={playerInfo.currentFavouriteCard}
                     expLevel={playerInfo.expLevel}
                     losses={playerInfo.losses}
                     name={playerInfo.name}
@@ -29,8 +28,13 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                     trophies={playerInfo.trophies}
                     wins={playerInfo.wins} 
                     threeCrownWins={playerInfo.threeCrownWins}
+                    clan={playerInfo.clan}
+                    role={playerInfo.role}
                 />
-                <CurrentDeck deck={playerInfo.currentDeck} />
+                <CurrentDeck 
+                    deck={playerInfo.currentDeck} 
+                    favoriteCard={playerInfo.currentFavouriteCard} 
+                />
             </div>
         </>
     )
