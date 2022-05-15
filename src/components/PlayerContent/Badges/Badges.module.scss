@@ -1,0 +1,17 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.badges {
+    width: 100%;
+    padding-top: 50px;
+    &_title { @include section-title; }
+    .container { @include container; }
+    &_holder {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 0 auto;
+    }
+
+}

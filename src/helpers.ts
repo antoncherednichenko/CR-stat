@@ -1,4 +1,4 @@
-import { CardI } from "./types/playerTypes"
+import { BadgeI, CardI } from "./types/playerTypes"
 
 export const getId = () => Math.random() + new Date().getTime()
 
@@ -56,4 +56,43 @@ export const getUnfinedCards = (allCards: CardI[], playerCards: CardI[]): CardI[
         }
     })
     return result
+}
+
+export const getMasteryCardsBadges = (arr: BadgeI[]): BadgeI[] => {
+    const res: BadgeI[] = []
+    arr.forEach(b => {
+        if(b.name.includes('Mastery')) {
+            res.push(b)
+        }
+    })
+    return res
+}
+
+export const getBadges = (arr: BadgeI[]): BadgeI[] => {
+    const res: BadgeI[] = []
+    arr.forEach(b => {
+        if(!b.name.includes('Mastery')) {
+            res.push(b)
+        }
+    })
+    return res
+
+
+}
+
+export const camelCaseToNormal = (str: string): string => {
+
+    const newStr: string = str.split('').map(l => {
+        if(l.toUpperCase() === l) {
+            return ` ${l.toLocaleLowerCase()}`
+        } else {
+            return l
+        }
+    }).join('')
+
+    return newStr
+}
+
+export const getPracents = (target: number, progress: number): string => {
+    return (Math.round(progress * 100 / target)) + '%'
 }

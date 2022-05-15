@@ -1,0 +1,55 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.modal {
+    width: 100vw;
+    height: 100vw;
+    padding: 0 15px;
+    &:before {
+        content: '';
+        width: 100vw;
+        height: 100vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 50;
+        background: $primary-black;
+        opacity: 0.8;
+    }
+    &_body {
+        max-width: 1000px;
+        width: 100%;
+        height: 550px;
+        padding: 15px;
+        background: $primary-grey;
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 55;
+        overflow: hidden;
+    }
+    &_header {
+        width: 100%;
+        position: relative;
+        padding: 10px;
+        border-bottom: 1px solid rgb(192, 187, 187);
+        .cross {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 35px;
+            &:hover {
+                color: $primary-blue;
+            }
+        }
+    }
+    &_content {
+        background: $primary-grey;
+        overflow-y: auto;
+        max-height: 100%;
+        padding: 50px 0;
+    }
+}

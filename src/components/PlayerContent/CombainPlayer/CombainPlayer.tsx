@@ -1,5 +1,6 @@
 import { FC, memo, useEffect } from 'react'
 import { PlayerInfoI } from '../../../types/playerTypes'
+import Badges from '../Badges/Badges'
 import CurrentDeck from '../CurrentDeck/CurrentDeck'
 import MainInfo from '../MainInfo/MainInfo'
 import OpenCards from '../OpenCards/OpenCards'
@@ -33,6 +34,7 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                     clan={playerInfo.clan}
                     role={playerInfo.role}
                 />
+                <Badges badges={playerInfo.badges} />
                 <CurrentDeck 
                     deck={playerInfo.currentDeck} 
                     favoriteCard={playerInfo.currentFavouriteCard} 

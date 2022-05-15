@@ -9,7 +9,7 @@ interface GameCardProps {
 
 const GameCard: FC<GameCardProps> = ({ card, favorite = false }) => {
     const cardClass = favorite ? [style.card_img, style.favorite] : [style.card_img]
-    const title = favorite ? 'Carrent favorite card' : ''
+    const title = favorite ? 'Current favorite card' : ''
     return (
         <>
             <div title={title} className={style.card}>

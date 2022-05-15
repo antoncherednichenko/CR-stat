@@ -17,12 +17,12 @@ export const CardChart: FC<CardChartProps> = ({ values, labels }) => {
         label: '# of Votes',
         data: values,
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
+            '#db724c',
+            '#98e182',
         ],
         borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(75, 192, 192, 1)',
+            '#db724c',
+            '#98e182',
         ],
         borderWidth: 1,
         },

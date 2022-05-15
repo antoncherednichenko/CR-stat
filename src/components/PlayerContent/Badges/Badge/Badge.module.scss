@@ -1,0 +1,19 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+.badge {
+    max-width: 250px;
+    max-height: 290px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    &_img {
+        width: 100%;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    &_title {
+        font-size: 30px;
+        text-align: center;
+    }
+}

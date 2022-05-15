@@ -3,10 +3,12 @@ import { getId } from "../../helpers"
 import { NavLinkType } from "../../types/types"
 
 interface NavInitState {
-    links: NavLinkType[]
+    links: NavLinkType[],
+    contentOverflow?: string
 }
 
 const initialState: NavInitState = {
+    contentOverflow: 'auto',
     links: [
         {
             title: 'Home',
@@ -53,10 +55,13 @@ const navSlice = createSlice({
                     return { ...l, isActive: false }
                 }
             })
+        },
+        changeContentOverflow: (state, action: PayloadAction<string>) => { 
+            state.contentOverflow = action.payload 
         } 
     }
 
 })
 
-export const { toggleLink } = navSlice.actions
+export const { toggleLink, changeContentOverflow } = navSlice.actions
 export default navSlice.reducer
