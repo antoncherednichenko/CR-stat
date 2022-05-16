@@ -8,7 +8,8 @@ interface TrophiesProps {
     threeCrownWins: number,
     battleCount: number,
     trophies: number,
-    bestTrophies: number
+    bestTrophies: number,
+    arena: string
 }
 
 const Trophies: FC<TrophiesProps> = ({ 
@@ -17,10 +18,12 @@ const Trophies: FC<TrophiesProps> = ({
     threeCrownWins, 
     battleCount, 
     trophies, 
-    bestTrophies 
+    bestTrophies,
+    arena
 }) => {
 
     const tooltipContent = {
+        arena,
         losses,
         wins,
         'Three-crown-wins': threeCrownWins,

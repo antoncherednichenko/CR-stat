@@ -82,11 +82,35 @@ export interface ChestI {
     name: string
 }
 
+export interface OpponentI {
+    tag: string,
+    name: string,
+    startingTrophies: number,
+    crowns: number,
+    kingTowerHitPoints: number,
+    princessTowersHitPoints: number[],
+    clan: ClanI,
+    cards: CardI[]
+}
+
+export interface BattleI {
+    type: string,
+    battleTime: string,
+    challengeId: number,
+    isLadderTournament: boolean,
+    arena: ArenaI,
+    gameMode: ArenaI,
+    challengeWinCountBefore?: number,
+    deckSelection: string,
+    team: OpponentI[]
+}
+
 export interface PlayerType {
     playerInfo: PlayerInfoI | null,
     isPlayerLoading: boolean,
     upcomingChests: ChestI[],
     isChestsLoading: boolean,
-    allCards: CardI[]
-    
+    allCards: CardI[],
+    isBattleLogLoading: boolean,
+    battleLog: BattleI[]
 }

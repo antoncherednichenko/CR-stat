@@ -1,0 +1,10 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.battles {
+    width: 100%;
+    .container { @include container; }
+    &_title {
+        @include section-title;
+    }
+}

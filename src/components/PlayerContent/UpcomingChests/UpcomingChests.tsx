@@ -1,20 +1,12 @@
-import { FC, useContext, useEffect } from 'react'
-import { removeSymbol, getId, getChestIcon } from '../../../helpers'
-import { useTypedDispatch, useTypedSelector } from '../../../hooks/hooks'
-import { tagContext } from '../../../pages/Player/Player'
-import { fetchUpcomingChests } from '../../../store/actions/playerActions'
+import { FC } from 'react'
+import { getId, getChestIcon } from '../../../helpers'
+import { useTypedSelector } from '../../../hooks/hooks'
 import Loading from '../../../ui/Loading/Loading'
 import style from './UpcomingChests.module.scss'
 
 const UpcomingChests: FC = () => {
-    const tag = useContext(tagContext)
-    const dispatch = useTypedDispatch()
     const { isChestsLoading, upcomingChests } = useTypedSelector(state => state.player)
     
-
-    useEffect(() => {
-        dispatch(fetchUpcomingChests(removeSymbol(tag, '#')))
-    }, [])
     return (
         <>
             <div className={style.chests}>

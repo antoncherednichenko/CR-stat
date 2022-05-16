@@ -1,0 +1,35 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.battle {
+    width: 100%;
+    padding-top: 25px;
+    .title {
+        width: 100%;
+        text-align: center;
+        font-size: 35px;
+        padding: 10px 0;
+        text-decoration: underline;
+    }
+    &_info {
+        .result {
+            max-width: 350px;
+            width: 100%;
+            margin: 0 auto;
+            font-size: 60px;
+            @include flex-center;
+            img {
+                width: 60px;
+                margin: 0 15px;
+            }
+            .crown_count {
+                span {
+                    color: $primary-blue;
+                    font-size: 50px;
+                    font-weight: 500;
+                }
+            }
+        } 
+    }
+    
+}

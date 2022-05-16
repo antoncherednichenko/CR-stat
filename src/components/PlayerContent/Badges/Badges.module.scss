@@ -8,10 +8,9 @@
     .container { @include container; }
     &_holder {
         width: 100%;
-        display: flex;
         flex-wrap: wrap;
-        gap: 15px;
         margin: 0 auto;
+        @include flex-between;
     }
 
 }

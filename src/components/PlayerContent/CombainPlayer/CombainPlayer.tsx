@@ -13,10 +13,6 @@ interface CombainePlayerProps {
 
 const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
 
-    useEffect(() => {
-        console.log(playerInfo)
-    }, [])
-
     return (
         <>
             <div className={style.combaine}>
@@ -33,6 +29,7 @@ const CombainPlayer: FC<CombainePlayerProps> = ({ playerInfo }) => {
                     threeCrownWins={playerInfo.threeCrownWins}
                     clan={playerInfo.clan}
                     role={playerInfo.role}
+                    arena={playerInfo.arena}
                 />
                 <Badges badges={playerInfo.badges} />
                 <CurrentDeck 

@@ -20,7 +20,8 @@ const MainInfo: FC<MainInfoProps> = ({
     wins,
     threeCrownWins,
     clan,
-    role
+    role,
+    arena
 }) => {
 
     return (
@@ -34,7 +35,8 @@ const MainInfo: FC<MainInfoProps> = ({
                         losses={losses}
                         threeCrownWins={threeCrownWins}
                         trophies={trophies}
-                        wins={wins} 
+                        wins={wins}
+                        arena={arena.name} 
                     />
                     <StarPoints>{starPoints}</StarPoints>
                     <ClanInfo clan={clan} />

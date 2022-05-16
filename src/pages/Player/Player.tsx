@@ -3,12 +3,13 @@ import Layout from "../../components/global/layout/Layout";
 import PlayerContent from "../../components/PlayerContent/PlayerContent";
 import { useTypedDispatch } from "../../hooks/hooks";
 import { getId, removeSymbol } from "../../helpers";
-import { fetchAllCards, fetchPlayerInfo } from "../../store/actions/playerActions";
+import { fetchAllCards, fetchBattleLog, fetchPlayerInfo, fetchUpcomingChests } from "../../store/actions/playerActions";
 import AppInput from "../../ui/AppInput/AppInput";
 import PageHeader from "../../ui/PageHeader/PageHeader";
 import Tabs from "../../ui/Tabs/Tabs";
 import style from './Player.module.scss'
 import { TabType } from "../../types/types";
+import BattleLog from "../../components/BattleLog/BattleLog";
 
 interface TabsType {
     [key: string]: TabType
@@ -29,7 +30,11 @@ const Players: FC = () => {
     const tabsKeys = Object.keys(tabs)
 
     const tagChanger = (value: string) => { setTag(value) }
-    const searchHandler = () => { dispatch(fetchPlayerInfo(removeSymbol(tag, '#'))) }
+    const searchHandler = () => {
+        dispatch(fetchPlayerInfo(removeSymbol(tag, '#')))
+        dispatch(fetchUpcomingChests(removeSymbol(tag, '#')))
+        dispatch(fetchBattleLog(removeSymbol(tag, '#')))
+    }
     const clearHandler = () => { setTag('') }
     const changeTab = (key: string) => {
         tabsKeys.forEach(k => {
@@ -68,7 +73,7 @@ const Players: FC = () => {
                 <div className={style.content}>
                     <tagContext.Provider value={tag}>
                         { tabs.player.isActive && <PlayerContent /> }
-                        { tabs.battleLog.isActive && <h1>upcomingChests</h1> }
+                        { tabs.battleLog.isActive && <BattleLog /> }
                         { tabs.createDeck.isActive && <h1>battleLog</h1> }
                     </tagContext.Provider>
                 </div>

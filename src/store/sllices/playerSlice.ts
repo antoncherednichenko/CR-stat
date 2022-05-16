@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { PlayerType } from "../../types/playerTypes"
-import { fetchAllCards, fetchPlayerInfo, fetchUpcomingChests } from "../actions/playerActions"
+import { fetchAllCards, fetchBattleLog, fetchPlayerInfo, fetchUpcomingChests } from "../actions/playerActions"
 
 const initialState: PlayerType = {
     playerInfo: null,
     isPlayerLoading: false,
     upcomingChests: [],
     isChestsLoading: false,
-    allCards: []
+    allCards: [],
+    isBattleLogLoading: false,
+    battleLog: []
 }
 
 const playerSlice = createSlice({
@@ -39,6 +41,17 @@ const playerSlice = createSlice({
         })
         // All cards
         builder.addCase(fetchAllCards.fulfilled, (state, { payload }) => { state.allCards = payload })
+        // Battlelog
+        builder.addCase(fetchBattleLog.pending, state => {
+            state.isBattleLogLoading = true
+        })
+        builder.addCase(fetchBattleLog.fulfilled, (state, { payload }) => {
+            state.battleLog = payload
+            state.isBattleLogLoading = false
+        })
+        builder.addCase(fetchBattleLog.rejected, state => {
+            state.isBattleLogLoading = false
+        })
     }
 })
 

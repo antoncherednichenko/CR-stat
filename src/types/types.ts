@@ -1,4 +1,4 @@
-import { CardI, ClanI } from "./playerTypes"
+import { ArenaI, CardI, ClanI } from "./playerTypes"
 
 export interface NavLinkType {
     isActive: boolean,
@@ -25,5 +25,6 @@ export interface MainInfoProps {
     starPoints: number,
     threeCrownWins: number,
     clan: ClanI,
-    role: string
+    role: string,
+    arena: ArenaI
 }

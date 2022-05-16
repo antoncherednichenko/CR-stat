@@ -39,3 +39,16 @@ export const fetchAllCards = createAsyncThunk(
         return result.items
     }
 )
+
+export const fetchBattleLog = createAsyncThunk(
+    'player/fetchBattleLog',
+    async (tag: string) => {
+        const result = await crAPI.get(`/players/battlelog?tag=${tag}`)
+            .then(result => {
+                return JSON.parse(result.data)
+            }).catch(err => {
+                console.error(err.message)
+            })
+        return result
+    }
+)
