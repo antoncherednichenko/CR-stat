@@ -22,9 +22,13 @@ const BattleLog: FC = () => {
                         !!battleLog.length &&
                         <>
                             <h2 className={style.battles_title}>Battle log</h2>
-                            {battleLog.map(b => (
-                                <Battle key={b.battleTime + getId()} battle={b}/>
-                            ))}
+                            {battleLog.map(b => {
+                                if(b.type !== 'boatBattle') {
+                                    return <Battle key={b.battleTime + getId()} battle={b}/>
+                                } else {
+                                    return null
+                                }
+                            })}
                         </>
                     }
                 </div>

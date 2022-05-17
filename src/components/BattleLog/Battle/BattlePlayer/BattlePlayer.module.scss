@@ -1,0 +1,41 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+.player {
+    &_name { font-size: 40px; }
+    &_tag { 
+        @include pseudo-link;
+        display: block;
+        margin-bottom: 10px; 
+    }
+    &_clan {
+        display: block;
+        padding: 5px 10px;
+        font-weight: 600;
+        text-align: center;
+        background: $primary-blue;
+        color: #fff;
+        border-radius: 2px;
+        margin-bottom: 10px;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &_trophies {
+        .start{
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            img { width: 25px;}
+        }
+        .upcoming {
+            width: 35px;
+            height: 35px;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: 500;
+            @include flex-center;
+        }
+    }
+
+}

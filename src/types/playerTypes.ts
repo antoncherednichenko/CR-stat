@@ -90,7 +90,8 @@ export interface OpponentI {
     kingTowerHitPoints: number,
     princessTowersHitPoints: number[],
     clan: ClanI,
-    cards: CardI[]
+    cards: CardI[],
+    trophyChange?: number
 }
 
 export interface BattleI {
@@ -102,7 +103,8 @@ export interface BattleI {
     gameMode: ArenaI,
     challengeWinCountBefore?: number,
     deckSelection: string,
-    team: OpponentI[]
+    team: OpponentI[],
+    opponent: OpponentI[]
 }
 
 export interface PlayerType {
