@@ -10,7 +10,8 @@
         width: 100%;
         flex-wrap: wrap;
         margin: 0 auto;
-        @include flex-between;
+        display: flex;
+        gap: 15px;
     }
 
 }

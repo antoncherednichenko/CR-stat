@@ -2,6 +2,7 @@ import { FC } from "react";
 import style from './Layout.module.scss'
 import Dashboard from "../dashboard/Dashboard";
 import { useTypedSelector } from "../../../hooks/hooks";
+import AppNotify from "../../../ui/AppNotify/AppNotify";
 
 interface ILayout {
     children: React.ReactNode
@@ -11,6 +12,7 @@ interface ILayout {
 const Layout: FC<ILayout> = ({ children }) => {
 
     const { contentOverflow } = useTypedSelector(state => state.nav)
+    const { isShow } = useTypedSelector(state => state.notify)
 
     return (
         <>
@@ -18,6 +20,7 @@ const Layout: FC<ILayout> = ({ children }) => {
                 <Dashboard />
                 <div style={{ overflowY: contentOverflow as 'auto' | 'hidden' }} className={style.content}>
                     {children}
+                    { isShow && <AppNotify /> }
                 </div>
             </div>
         </>

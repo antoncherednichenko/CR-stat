@@ -39,7 +39,7 @@ const MainInfo: FC<MainInfoProps> = ({
                         arena={arena.name} 
                     />
                     <StarPoints>{starPoints}</StarPoints>
-                    <ClanInfo clan={clan} />
+                    { clan?.name && <ClanInfo clan={clan} /> }
                 </div>
             </AppCard>
         </>

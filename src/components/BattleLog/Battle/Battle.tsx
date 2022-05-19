@@ -24,14 +24,18 @@ const Battle: FC<BatlleProps> = ({ battle }) => {
                         name={battle.team[0].name}
                         tag={battle.team[0].tag}
                         trophies={battle.team[0].startingTrophies}
-                        changeTrophies={battle.team[0].trophyChange} 
+                        changeTrophies={battle.team[0].trophyChange}
+                        deck={battle.team[0].cards} 
+                        direction='left'
                     />
                     <BattlePlayer
                         clan={battle.opponent[0].clan}
                         name={battle.opponent[0].name}
                         tag={battle.opponent[0].tag}
                         trophies={battle.opponent[0].startingTrophies}
-                        changeTrophies={battle.opponent[0].trophyChange} 
+                        changeTrophies={battle.opponent[0].trophyChange}
+                        deck={battle.opponent[0].cards}
+                        direction= 'right' 
                     />
                 </div>  
             </div>

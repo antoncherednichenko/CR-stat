@@ -2,6 +2,9 @@
 @import '../../../../styles/vars.scss';
 
 .player {
+    &_wrapper {
+        margin-bottom: 50px;
+    }
     &_name { font-size: 40px; }
     &_tag { 
         @include pseudo-link;
@@ -35,6 +38,28 @@
             color: #fff;
             font-weight: 500;
             @include flex-center;
+        }
+    }
+    .tag_holder {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .copy {
+            font-size: 20px;
+            display: inline;
+            &:hover {
+                color: $primary-blue;
+            }
+        }
+    }
+    &_deck {
+        @include flex-between;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 15px;
+        img {
+            width: 125px;
+            image-rendering: crisp-edges;
         }
     }
 

@@ -1,0 +1,28 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.notify {
+    display: block;
+    z-index: 10000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    background: $primary-grey;
+    min-height: 75px;
+    border-radius: 4px;
+    transition: top 0.5s;
+    cursor: pointer;
+    @include shadow;
+    &_green {
+        background: $primary-green;
+        width: 25px;
+    }
+    &_value {
+        @include flex-center;
+        width: 100%;
+        padding: 0 15px;
+        font-size: 22px;
+        font-weight: 500    ;
+    }
+}
