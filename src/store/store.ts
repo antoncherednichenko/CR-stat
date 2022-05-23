@@ -1,4 +1,5 @@
 import { combineReducers ,configureStore } from "@reduxjs/toolkit"
+import deckCreatorSlice from "./sllices/deckCreatorSlice"
 import navSlice from "./sllices/navSlice"
 import notifySlice from "./sllices/notifySlice"
 import playerSlice from "./sllices/playerSlice"
@@ -6,7 +7,8 @@ import playerSlice from "./sllices/playerSlice"
 const rootReducer = combineReducers({
     nav: navSlice,
     player: playerSlice,
-    notify: notifySlice
+    notify: notifySlice,
+    deckCreator: deckCreatorSlice
 })
 
 const store = configureStore({

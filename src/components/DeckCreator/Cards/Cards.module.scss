@@ -1,0 +1,15 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    button {
+        width: calc(10% - 5px);
+        img {
+            width: 100%;
+        }
+    }
+}

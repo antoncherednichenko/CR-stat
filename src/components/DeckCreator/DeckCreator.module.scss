@@ -1,0 +1,7 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.creator {
+    width: 100%;
+    .container { @include container; }
+}

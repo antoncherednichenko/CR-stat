@@ -10,6 +10,7 @@ import Tabs from "../../ui/Tabs/Tabs";
 import style from './Player.module.scss'
 import { TabType } from "../../types/types";
 import BattleLog from "../../components/BattleLog/BattleLog";
+import DeckCreator from "../../components/DeckCreator/DeckCreator";
 
 interface TabsType {
     [key: string]: TabType
@@ -74,7 +75,7 @@ const Players: FC = () => {
                     <tagContext.Provider value={tag}>
                         { tabs.player.isActive && <PlayerContent /> }
                         { tabs.battleLog.isActive && <BattleLog /> }
-                        { tabs.createDeck.isActive && <h1>battleLog</h1> }
+                        { tabs.createDeck.isActive && <DeckCreator /> }
                     </tagContext.Provider>
                 </div>
             </Layout>
