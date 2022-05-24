@@ -14,7 +14,11 @@ const Deck: FC<DeckProps> = ({ cards }) => {
             <div className={style.deck}>
                 { cards.map(c => {
                     if(c.name === 'plug') {
-                        return <div key={c.id} className={style.deck_plug}></div>
+                        return (
+                            <div key={c.id} className={style.deck_plug}>
+                                <img src="https://cdn.royaleapi.com/static/img/ui/128x128/battle.png?t=ee9db8e2c" alt="icon" />
+                            </div>
+                        )
                     } else {
                         return <Card key={c.id} card={c} />
                     }

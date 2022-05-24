@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { getId } from "../../helpers"
+import { getId, getRandomInt } from "../../helpers"
+import { useRootState } from "../../hooks/hooks"
 import { CardI } from "../../types/playerTypes"
 
 interface CreateDeckI {
@@ -41,9 +42,18 @@ const deckCreatorSlice = createSlice({
         resetDeck: state => {
             state.deck = []
             state.chosenCards = [] 
+        },
+        getRandomDeck: (state, action: PayloadAction<CardI[]>) => {
+            state.deck = []
+            while (state.deck.length < 8) {
+                let randomIndex = getRandomInt(0, action.payload.length - 1)
+                if(!state.deck.some(c => c.id === action.payload[randomIndex].id)) {
+                    state.deck.push(action.payload[randomIndex])
+                }
+            }
         }
     }
 })
 
-export const { addCard, resetDeck } = deckCreatorSlice.actions
+export const { addCard, resetDeck, getRandomDeck } = deckCreatorSlice.actions
 export default deckCreatorSlice.reducer

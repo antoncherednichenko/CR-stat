@@ -96,3 +96,9 @@ export const camelCaseToNormal = (str: string): string => {
 export const getPracents = (target: number, progress: number): string => {
     return (Math.round(progress * 100 / target)) + '%'
 }
+
+export const getRandomInt = (min: number, max: number) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}

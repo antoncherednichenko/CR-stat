@@ -2,5 +2,23 @@
 @import '../../../../styles/vars.scss';
 
 .card {
+    // max-width: calc(25% - 5px);
+    // width: 100%;
     width: calc(25% - 5px);
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    &_title {
+        position: absolute;
+        bottom: 35px;
+        width: 100%;
+        text-align: center;
+        color: $primary-perple;
+        font-weight: 500;
+        font-size: 30px;
+        background: $primary-blue;
+        border-radius: 50px;
+    }
 }

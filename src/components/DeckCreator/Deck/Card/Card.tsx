@@ -10,7 +10,9 @@ const Card: FC<CardProps> = ({ card }) => {
 
     return (
         <>
-            <img className={style.card} src={card.iconUrls.medium} alt={card.name} />
+        <div style={{ backgroundImage: `url(${card.iconUrls.medium})` }} className={style.card}>
+            <h3 className={style.card_title}>{card.name}</h3>
+        </div>
         </>
     )
 }
