@@ -1,0 +1,11 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.clans {
+    .container { @include container; }
+    .input-holder {
+        width: 60%;
+        margin: 0 auto;
+        padding-top: 25px;
+    }
+}

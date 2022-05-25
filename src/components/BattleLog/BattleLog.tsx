@@ -1,4 +1,4 @@
-import { FC, memo, useEffect } from 'react'
+import { FC, memo } from 'react'
 import { useTypedSelector } from '../../hooks/hooks'
 import Loading from '../../ui/Loading/Loading'
 import Battle from './Battle/Battle'
@@ -7,10 +7,6 @@ import { getId } from '../../helpers'
 
 const BattleLog: FC = () => {
     const { battleLog, isBattleLogLoading } = useTypedSelector(state => state.player)
-
-    useEffect(() => {
-        console.log(battleLog)
-    }, [battleLog])
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import style from './Layout.module.scss'
 import Dashboard from "../dashboard/Dashboard";
 import { useTypedSelector } from "../../../hooks/hooks";
@@ -16,8 +16,7 @@ const Layout: FC<ILayout> = ({ children }) => {
     const { isShow } = useTypedSelector(state => state.notify)
     const [offset, setOffset] = useState(0)
     const scrollHandler = (e: React.UIEvent<HTMLElement>) => {
-        setOffset(e.currentTarget.scrollHeight - e.currentTarget.clientHeight)
-        console.log(offset)
+        setOffset(e.currentTarget.scrollTop)
     }
 
     return (
@@ -27,7 +26,7 @@ const Layout: FC<ILayout> = ({ children }) => {
                 <div onScroll={scrollHandler} id="content" style={{ overflowY: contentOverflow as 'auto' | 'hidden' }} className={style.content}>
                     {children}
                     { isShow && <AppNotify /> }
-                    { offset > 200 && <UpScroller /> }
+                    { offset > 800 && <UpScroller /> }
                 </div>
             </div>
         </>
