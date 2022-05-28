@@ -1,0 +1,55 @@
+@import '../../../styles/global.scss';
+@import '../../../styles/vars.scss';
+
+.clan {
+    max-width: 500px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    &_name {
+        width: 100%;
+        @include flex-between;
+        &__first_column {
+            h4 {
+                font-size: 28px;
+                color: $primary-black;
+                text-decoration: underline;
+                padding: 5px;
+            }
+            button {
+                background: $primary-blue;
+                color: #fff;
+                font-size: 18px;
+                padding: 5px;
+                border-radius: 4px;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+                
+        }
+        &__second_column {
+            @include column(5px);
+            align-items: flex-start;
+            .type {
+                font-size: 18px;
+                font-weight: 500;
+                background: $primary-green;
+                padding: 5px;
+                border-radius: 2px;
+            }
+            .trophies {
+                font-size: 18px;
+                align-items: center
+            }
+        }
+    }
+    &_info {
+        div {
+            @include column(5px);
+            align-items: flex-start;
+            padding-top: 10px;
+            font-size: 22px;
+        }
+    }
+}

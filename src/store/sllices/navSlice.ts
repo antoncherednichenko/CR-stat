@@ -58,10 +58,26 @@ const navSlice = createSlice({
         },
         changeContentOverflow: (state, action: PayloadAction<string>) => { 
             state.contentOverflow = action.payload 
+        },
+        checkNavMenu: (state, action: PayloadAction<string>) => {
+            state.links = state.links.map(l => (
+                {
+                    ...l,
+                    isActive: l.path === action.payload
+                }
+            ))
+        },
+        disableAllNavLinks: state => {
+            state.links = state.links.map(l => (
+                {
+                    ...l,
+                    isActive: false
+                }
+            ))
         } 
     }
 
 })
 
-export const { toggleLink, changeContentOverflow } = navSlice.actions
+export const { toggleLink, changeContentOverflow, checkNavMenu, disableAllNavLinks } = navSlice.actions
 export default navSlice.reducer

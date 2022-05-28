@@ -1,0 +1,19 @@
+@import '../../../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    tr {
+        &:hover {
+           td {
+            background: $primary-grey;
+           }
+           @include shadow;
+        }
+    }
+}

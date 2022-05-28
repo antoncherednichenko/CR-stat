@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { CardI, ClanI } from '../../../../types/playerTypes'
 import style from './BattlePlayer.module.scss'
 import { FiCopy } from 'react-icons/fi'
-import { useTypedDispatch } from '../../../../hooks/hooks'
+import { useClanTag, useTypedDispatch } from '../../../../hooks/hooks'
 import { hideNotify, showNotify } from '../../../../store/sllices/notifySlice'
  
 interface BattlePlayerProps {
@@ -25,6 +25,7 @@ const BattlePlayer: FC<BattlePlayerProps> = ({ name, tag, clan, trophies, change
             dispatch(hideNotify())
         }, 5000)
     } 
+    const findClan = useClanTag(clan?.tag)
 
     return (
         <>  
@@ -41,7 +42,7 @@ const BattlePlayer: FC<BattlePlayerProps> = ({ name, tag, clan, trophies, change
                         </a>
                         <button onClick={() => copy(tag)} className={style.copy}><FiCopy /></button>
                     </span>
-                    { clan?.name && <button className={style.player_clan}>{clan?.name}</button> }
+                    { clan?.name && <button onClick={findClan} className={style.player_clan}>{clan?.name}</button> }
                     <div className={style.player_trophies}>
                         <div className={style.start}>
                             <img src="https://cdn.royaleapi.com/static/img/ui/trophy.png?t=6f676365c" alt="trohie icon" />

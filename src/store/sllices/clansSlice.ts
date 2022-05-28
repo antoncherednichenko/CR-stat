@@ -1,16 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { ClansStateI } from "../../types/clanTypes"
-import { searchClan } from "../actions/clansActions"
+import { getClanByTag, searchClan } from "../actions/clansActions"
 
 const initialState: ClansStateI = {
     clansList: [],
-    isClansLoading: false
+    isClansLoading: false,
+    isSearchComponent: true,
+    clanInfo: null
 }
 
 const clansSlice = createSlice({
     name: 'clans',
     initialState,
-    reducers: {},
+    reducers: {
+        backToSearch: state => { state.isSearchComponent = true },
+        startLoading: state => { state.isClansLoading = true }
+    },
     extraReducers: builder => {
         builder.addCase(searchClan.pending, state => {
             state.isClansLoading = true
@@ -22,7 +27,21 @@ const clansSlice = createSlice({
         builder.addCase(searchClan.rejected, state => {
             state.isClansLoading = false
         })
+        // GET BY CLAN TAG
+        builder.addCase(getClanByTag.pending, state => {
+            state.isSearchComponent = false
+            state.isClansLoading = true
+        })
+        builder.addCase(getClanByTag.fulfilled, (state, { payload }) => {
+            state.isClansLoading = false
+            state.clanInfo = payload
+        })
+        builder.addCase(getClanByTag.rejected, state => {
+            state.isClansLoading = false
+            state.isSearchComponent = true
+        })
     }
 })
 
+export const { backToSearch, startLoading } = clansSlice.actions
 export default clansSlice.reducer

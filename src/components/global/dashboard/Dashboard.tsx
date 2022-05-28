@@ -1,7 +1,7 @@
 import { FC, useEffect } from "react";
-import { checkPath } from "../../../helpers";
+import { useLocation } from "react-router-dom";
 import { useTypedDispatch, useTypedSelector } from "../../../hooks/hooks";
-import { toggleLink } from "../../../store/sllices/navSlice";
+import { checkNavMenu, toggleLink } from "../../../store/sllices/navSlice";
 import AppLink from "../../../ui/AppLink/AppLink";
 import style from './Dashboard.module.scss'
 
@@ -10,13 +10,10 @@ const Dashboard: FC = () => {
     const { links } = useTypedSelector(state => state.nav)
     const dispatch = useTypedDispatch()
     const changeLink = (id: number) => { dispatch(toggleLink(id)) }
+    const path = useLocation().pathname
 
     useEffect(() => {
-        links.forEach(l => {
-            if(!l.isActive && checkPath(l.path)) {
-                dispatch(toggleLink(l.id))
-            }
-        })
+        dispatch(checkNavMenu(path))
     }, [])
 
     return (
