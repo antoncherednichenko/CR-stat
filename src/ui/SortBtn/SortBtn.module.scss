@@ -1,0 +1,10 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.sort {
+    font-size: 25px;
+    transition: transform 0.5s;
+    &:hover {
+        color: $primary-blue;
+    }
+}
