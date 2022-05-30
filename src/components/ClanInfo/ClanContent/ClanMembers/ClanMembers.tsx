@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
+import { useTypedDispatch } from '../../../../hooks/hooks'
 import { MemberI } from '../../../../types/clanTypes'
-import SortBtn from '../../../../ui/SortBtn/SortBtn'
 import style from './ClanMembers.module.scss'
+import { showNotify, hideNotify } from '../../../../store/sllices/notifySlice'
 
 interface ClanMembersProps {
     members: MemberI[]
@@ -9,19 +10,40 @@ interface ClanMembersProps {
 
 const ClanMembers: FC<ClanMembersProps> = ({ members }) => {
 
+    const dispatch = useTypedDispatch()
     const [renderList, setRenderList] = useState(members)
     const [sortState, setSortState] = useState({
-        name: 'ASK',
+        memberName: 'ASK',
         role: 'ASK',
-        lastSeen: 'ASK',
         trophies: 'ASK',
         donated: 'ASK',
         recieved: 'ASK',
     })
 
-    const sortByName = () => { console.log('sort') }
-    const sortByRole = () => { console.log('sort') }
-    const sortByLastSeen = () => { console.log('sort') }
+    const sortByName = () => {
+        const arrForSort = [...members]
+        if(sortState.memberName === 'ASK') {
+            const sortedList = arrForSort.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0))
+            setSortState({ ...sortState, memberName: 'DESC' })
+            setRenderList(sortedList)
+        } else if(sortState.memberName === 'DESC') {
+            const sortedList = arrForSort.sort((a, b) => b.name.toUpperCase().charCodeAt(0) - a.name.toUpperCase().charCodeAt(0))
+            setSortState({ ...sortState, memberName: 'ASK' })
+            setRenderList(sortedList)
+        }
+    }
+    const sortByRole = () => {
+        const arrForSort = [...members]
+        if(sortState.role === 'ASK') {
+            const sortedList = arrForSort.sort((a, b) => a.role.charCodeAt(0) - b.role.charCodeAt(0))
+            setSortState({ ...sortState, role: 'DESC' })
+            setRenderList(sortedList)
+        } else if(sortState.role === 'DESC') {
+            const sortedList = arrForSort.sort((a, b) => b.role.toUpperCase().charCodeAt(0) - a.role.toUpperCase().charCodeAt(0))
+            setSortState({ ...sortState, role: 'ASK' })
+            setRenderList(sortedList)
+        }
+    }
     const sortByTrophies = () => {
         const arrForSort = [...members]
         if(sortState.trophies === 'ASK') {
@@ -60,6 +82,14 @@ const ClanMembers: FC<ClanMembersProps> = ({ members }) => {
         }
     }
 
+    const copyTag = (tag: string) => {
+        navigator.clipboard.writeText(tag)
+        dispatch(showNotify(`Tag ${tag} copied!`))
+        setTimeout(() => {
+            dispatch(hideNotify())
+        }, 5000)
+    }
+
     return (
         <>
             <div className={style.members}>
@@ -67,12 +97,11 @@ const ClanMembers: FC<ClanMembersProps> = ({ members }) => {
                 <table>
                     <thead>
                         <tr>
-                            <th>Name <SortBtn clickCallback={sortByName} /></th>
-                            <th>Role <SortBtn clickCallback={sortByRole} /></th>
-                            <th>Last seen <SortBtn clickCallback={sortByLastSeen} /></th>
-                            <th>Trophies <SortBtn clickCallback={sortByTrophies} /></th>
-                            <th>Donated <SortBtn clickCallback={sortByDonated} /></th>
-                            <th>Received <SortBtn clickCallback={sortByReceived} /></th>
+                            <th><button className={style['sort-btn']} onClick={sortByName}>Name</button></th>
+                            <th><button className={style['sort-btn']} onClick={sortByRole}>Role</button></th>
+                            <th><button className={style['sort-btn']} onClick={sortByTrophies}>Trophies</button></th>
+                            <th><button className={style['sort-btn']} onClick={sortByDonated}>Donated</button></th>
+                            <th><button className={style['sort-btn']} onClick={sortByReceived}>Received</button></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,10 +109,9 @@ const ClanMembers: FC<ClanMembersProps> = ({ members }) => {
                             <tr key={m.tag}>
                                 <td>
                                     <span className={style.name}>{m.name}</span>
-                                    <span>{m.tag}</span>
+                                    <button onClick={() => copyTag(m.tag)} className={style.tag}>{m.tag}</button>
                                 </td>
                                 <td>{m.role}</td>
-                                <td>{m.lastSeen}</td>
                                 <td>{m.trophies}</td>
                                 <td>{m.donations}</td>
                                 <td>{m.donationsReceived}</td>

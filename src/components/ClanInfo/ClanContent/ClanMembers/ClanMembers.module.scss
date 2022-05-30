@@ -15,12 +15,28 @@
             padding: 10px;
             text-align: left;
         }
+        td
+            .tag {
+                font-size: 18px;
+                margin-top: 5px;
+                &:hover {
+                    color: $primary-blue;
+                }
+            }
+        td span { display: block; }
         tr {
             &:hover {
             td {
                 background: $primary-grey;
             }
             }
+        }
+    }
+    .sort-btn {
+        font-size: 18px;
+        font-weight: 700;
+        &:hover {
+            color: $primary-blue;
         }
     }
 }
