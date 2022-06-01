@@ -9,7 +9,7 @@ interface ClanItemProps {
 
 const ClanItem: FC<ClanItemProps> = ({ clan }) => {
 
-    const findClan = useClanTag(clan.tag)
+    const findClan = useClanTag()
 
     return (
         <>
@@ -17,7 +17,7 @@ const ClanItem: FC<ClanItemProps> = ({ clan }) => {
                 <div className={style.clan_name}>
                     <div className={style.clan_name__first_column}>
                         <h4>{clan.name}</h4>
-                        <button onClick={findClan}>{clan.tag}</button>
+                        <button onClick={() => findClan(clan.tag)}>{clan.tag}</button>
                     </div>
                     <div className={style.clan_name__second_column}>
                         <span className={style.type}>{clan.type}</span>

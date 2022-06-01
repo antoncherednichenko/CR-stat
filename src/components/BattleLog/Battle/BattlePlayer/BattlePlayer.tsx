@@ -25,7 +25,7 @@ const BattlePlayer: FC<BattlePlayerProps> = ({ name, tag, clan, trophies, change
             dispatch(hideNotify())
         }, 5000)
     } 
-    const findClan = useClanTag(clan?.tag)
+    const findClan = useClanTag()
 
     return (
         <>  
@@ -42,7 +42,7 @@ const BattlePlayer: FC<BattlePlayerProps> = ({ name, tag, clan, trophies, change
                         </a>
                         <button onClick={() => copy(tag)} className={style.copy}><FiCopy /></button>
                     </span>
-                    { clan?.name && <button onClick={findClan} className={style.player_clan}>{clan?.name}</button> }
+                    { clan?.name && <button onClick={() => findClan(clan?.tag)} className={style.player_clan}>{clan?.name}</button> }
                     <div className={style.player_trophies}>
                         <div className={style.start}>
                             <img src="https://cdn.royaleapi.com/static/img/ui/trophy.png?t=6f676365c" alt="trohie icon" />

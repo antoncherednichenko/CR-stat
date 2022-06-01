@@ -12,12 +12,12 @@ export const useTypedDispatch = () => useDispatch<AppDispatch>()
 
 export const useRootState = () => store.getState()
 
-export const useClanTag = (tag: string) => {
+export const useClanTag = () => {
 
     const dispatch = useTypedDispatch()
     const navigate = useNavigate()
 
-    return () => {
+    return (tag: string) => {
         dispatch(disableAllNavLinks())
         navigate('/clans')
         dispatch(startLoading())

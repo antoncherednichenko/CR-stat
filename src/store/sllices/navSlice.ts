@@ -27,19 +27,7 @@ const initialState: NavInitState = {
             isActive: false,
             path: '/clans',
             id: getId() 
-        },
-        {
-            title: 'Tourmenets',
-            isActive: false,
-            path: '/tourmenets',
-            id: getId()  
-        },
-        {
-            title: 'Chalenges',
-            isActive: false,
-            path: '/chalenges',
-            id: getId() 
-        },
+        }
     ]
 }
 

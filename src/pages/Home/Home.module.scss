@@ -1,0 +1,11 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+.container { @include container; }
+.title {
+    font-size: 45px;
+    color: $primary-blue;
+    text-align: center;
+    padding: 25px 0;
+    margin-bottom: 25px;
+}

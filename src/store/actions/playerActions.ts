@@ -52,3 +52,14 @@ export const fetchBattleLog = createAsyncThunk(
         return result
     }
 )
+
+export const getTopPlayers = createAsyncThunk(
+    'home/getTopPlayers',
+    async () => {
+        const response = await crAPI.get('players/top')
+            .then(result => {
+                return JSON.parse(result.data).items
+            }).catch(err => { console.error(err.message) })
+        return response
+    }
+)

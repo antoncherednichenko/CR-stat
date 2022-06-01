@@ -1,0 +1,43 @@
+@import '../../styles/global.scss';
+@import '../../styles/vars.scss';
+
+table {
+    width: 100%;
+    font-size: 22px;
+    border-collapse: collapse;
+    tr {
+        &:hover {
+            td {
+                background: $primary-grey;
+            }
+        }
+    }
+    td {
+        padding: 15px 10px;
+        border-bottom: 1px solid $primary-black;
+        .name, .tag { display: block; }
+        .tag {
+            color: $primary-blue;
+            font-size: 20px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+        .trophies {
+            display: flex;
+            gap: 10px;
+            img { width: 30px; }
+        }
+        .clan {
+            span, button { display: block; }
+            button {
+                color: $primary-blue;
+                font-size: 20px;
+                &:hover {
+                    opacity: 0.7;
+                } 
+            }
+        }
+    }
+}
+

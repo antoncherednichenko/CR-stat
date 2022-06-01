@@ -116,3 +116,14 @@ export interface PlayerType {
     isBattleLogLoading: boolean,
     battleLog: BattleI[]
 }
+
+export interface TopPlayerI {
+    tag: string,
+    name: string,
+    expLevel: number,
+    trophies: number,
+    rank: number,
+    previousRank: number,
+    clan: ClanI,
+    arena: ArenaI
+}
